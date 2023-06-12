@@ -38,12 +38,12 @@ def cut_tree():
     image = np.array(screenshot)
     
     BROWN_COLOR_RANGE = {
+        "R": (120, 150),
+        "G": (50, 70),
+        "B": (10, 30)
         # "R": (150, 200),
         # "G": (100, 150),
-        # "B": (30, 50)
-        "R": (150, 200),
-        "G": (100, 150),
-        "B": (50, 100)
+        # "B": (50, 100)
     }
 
     COLOR_RANGE = BROWN_COLOR_RANGE
@@ -81,19 +81,13 @@ def get_screenshot():
     screenshot = sct.grab(MONITOR)
     
     # for debugging - to print out output
-    # output = "sct-{top}x{left}_{width}x{height}.png".format(**MONITOR)
-    # tools.to_png(screenshot.rgb, screenshot.size, output="/tmp/{}".format(output))
+    output = "sct-{top}x{left}_{width}x{height}.png".format(**MONITOR)
+    tools.to_png(screenshot.rgb, screenshot.size, output="/tmp/{}".format(output))
     return screenshot
     
     
     
 if __name__ == '__main__':
-    BROWN_COLOR_RANGE = {
-        "R": (150, 200),
-        "G": (100, 150),
-        "B": (50, 100)
-    }
-    
     count = 0
     while count < 60:
         cut_tree()
